@@ -1,0 +1,59 @@
+//Creating Parent table,with primary key = (Course_ID)
+
+CREATE table course(Course_ID int PRIMARY key,Course_name varchar(30));
+
+
+INSERT  into course values(01,'Computer'),(02,'Mechanical'),(03,'Civil'),(04,'Electrical'),(05,'E&TC');
+
+
+//Creating Child table,with primary key = (Student_ID), Foreign key = (Link)
+CREATE table student(Student_ID int PRIMARY key,Student_name varchar(50),
+link int,FOREIGN key(link) REFERENCES course(Course_ID));
+
+
+INSERT  into student values(01,'James',01),(02,'John',03),(03,'Henry',04),(04,'Jordi',05),(05,'Mia',02);
+
+
+
+//Deleting from Parent Table , showing error
+DELETE from course 
+where Course_ID = 01;
+Error:
+Cannot delete or update a parent row: a foreign key constraint fails 
+(`ar_emp`.`student`, CONSTRAINT `student_ibfk_1` FOREIGN KEY (`link`) REFERENCES `course` (`Course_ID`))
+
+
+
+//Deleting from Child Table , Successfully deleted
+DELETE from student 
+where student_ID = 05;
+OP:
+1 row deleted. (Query took 0.0003 seconds.)
+DELETE from student where student_ID = 05;
+
+
+
+
+
+//Inseting into Parent table with different values
+//Without unique key
+INSERT into course VALUES(05,'Automobile');
+Error
+MySQL said:
+#1062 - Duplicate entry '5' for key 'PRIMARY'
+//with unique key
+INSERT into course VALUES(06,'Automobile');
+1 row inserted. (Query took 0.0008 seconds.)
+
+
+//Inserting into Child Table without the link being present in parent table
+INSERT into student VALUES(05,'Trump',07);
+Error
+#1452 - Cannot add or update a child row: a foreign key constraint fails 
+(`ar_emp`.`student`, CONSTRAINT `student_ibfk_1` FOREIGN KEY (`link`) REFERENCES `course` (`Course_ID`))
+
+
+
+
+
+
