@@ -1,0 +1,35 @@
+//Creating Table
+CREATE TABLE Student (ID int PRIMARY KEY,Name varchar(30),City varchar(10),Contact_No bigint);
+
+
+//Inserting into Table
+insert into Student values(1,'James','Malegaon',7447556952),
+(2,'John','Dhule',7882563984),
+(3,'Jim','Jhodga',9278963541),
+(4,'Jil','Manmad',5968741365),
+(5,'Jack','Nashik',8237425987)	
+
+
+//Creating View
+create VIEW Stu_Vie AS
+SELECT Id,Name,City
+from Student;
+
+
+//Display View
+SELECT * from Stu_Vie;
+
+//INsert into View
+INSERT into Stu_Vie value(6,'Jacob','Chandawd');
+
+
+// Deleting from View
+DELETE from Stu_Vie 
+where Id=4;
+
+//Updating View
+update Stu_Vie 
+set City = 'Thane'
+where Id = 3;
+
+
