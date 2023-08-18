@@ -1,0 +1,56 @@
+CREATE TABLE student (ID int PRIMARY KEY,Name varchar(30),Class varchar(10));
+INSERT INTO student VALUES (1,'James','TE Comp'),(2,'John','TE Elec'),(3,'Kevin','TE Mech'),(4,'Lee','TE Civil'),(5,'Andrew','TE E&TC')
+
+CREATE TABLE Course (Course_ID int,Name varchar(10))
+INSERT INTO Course VALUES (1,'Clark'),(2,'Blake'),(3,'Jennifer'),(6,'Trump'),(7,'Joe');
+
+//01 Cross Join
+SELECT student.ID, course.Course_ID
+FROM student
+CROSS JOIN course;
+
+//02 Inner Joim
+SELECT *
+FROM student
+INNER JOIN course
+ON student.ID = course.Course_ID;
+
+//03 Left Join
+SELECT *
+FROM student
+LEFT JOIN course
+ON student.ID = course.Course_ID;
+
+//04 Right Join
+SELECT *
+FROM student
+Right JOIN course
+ON student.ID = course.Course_ID;
+
+//05 Full Outer Join
+SELECT *
+FROM student
+LEFT JOIN course
+ON student.ID = course.Course_ID
+UNION
+SELECT *
+FROM student
+Right JOIN course
+ON student.ID = course.Course_ID;
+
+//06 Self Join
+SELECT *
+FROM student
+slef JOIN student
+
+
+SELECT * FROM student;
+SELECT * FROM course;
+
+
+//Index
+CREATE INDEX Stu 
+ON student(id)	
+
+
+
