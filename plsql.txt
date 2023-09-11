@@ -1,0 +1,37 @@
+declare 
+a integer:=10;
+b integer:=20;
+c integer;
+begin
+c:=a+b;
+dbms_output.put_line(c);
+end
+
+declare 
+a integer:=:a;
+b integer:=:b;
+c integer;
+begin
+c:=a+b;
+dbms_output.put_line(c);
+end
+
+declare 
+id integer:=:id;
+sal integer;
+begin
+select esalary into sal
+from emp2
+where eid=id;
+dbms_output.put_line(sal);
+sal:=sal*100;
+dbms_output.put_line(sal);
+update emp2
+set esalary = sal
+where eid=id;
+dbms_output.put_line('update db vallue');
+select esalary into sal
+from emp2
+where eid=id;
+dbms_output.put_line(sal);
+end
