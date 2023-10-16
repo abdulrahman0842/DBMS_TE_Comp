@@ -24,4 +24,19 @@ create table Fine(Roll_No int,Datee Date,Amount int)
 
 select * from borrower
 
+declare
 
+CDate date;
+IDate date;
+TDays int:= CDate - IDate ;
+
+begin
+
+if TDays>15 && TDays<=30:
+ TDays * 5
+else TDays >30:
+ TDays * 50
+
+dbms_output.put_line(Tdays);
+
+end;
